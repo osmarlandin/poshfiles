@@ -1,6 +1,8 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Import-Module "$root\Modules\posh-alias\Posh-Alias.psd1"
 
+Function lsf {Get-ChildItemColor -Force}
+
 Add-Alias st 'git status'
 Add-Alias ps 'git push'
 Add-Alias push 'git push'
@@ -20,7 +22,7 @@ Add-Alias up 'git up'
 Add-Alias sync 'git sync'
 Add-Alias gitbash '. "C:\Program Files\Git\usr\bin\bash.exe"'
 Add-Alias ll 'Get-ChildItemColor'
-Add-Alias ls 'Get-ChildItemColorFormatWide'
+Set-Alias -Name ls -Value lsf
 
 #git aliases
 git config --global alias.st status
