@@ -18,6 +18,13 @@ Import-Module "$root/Modules/Get-ChildItemColor/src/Get-ChildItemColor.psd1"
 
 Set-Theme Paradox
 
+$kubeConfigHome = Join-Path $env:HOME '.kube'
+if (Test-Path $kubeConfigHome) {
+    $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object { $kubeConfig = '' } { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
+    Remove-Variable kubeConfig
+}
+Remove-Variable kubeConfigHome
+
 . "$root/CreateAliases.ps1"
 . "$root/Functions.ps1"
 
