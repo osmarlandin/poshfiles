@@ -16,6 +16,8 @@ Import-Module "$root/Modules/oh-my-posh/oh-my-posh.psm1" #don't import the psd1,
 Import-Module "$root/Modules/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
 Import-Module "$root/Modules/Get-ChildItemColor/src/Get-ChildItemColor.psd1"
 
+#to use this theme, download and install 'DroidSansMono Nerd Font' from https://github.com/ryanoasis/nerd-fonts/releases
+#otherwise, to use Paradox, download and install 'Cascadia Code PL' from https://github.com/microsoft/cascadia-code/releases
 Set-Theme "$($ThemeSettings.MyThemesLocation)\osmar-theme.psm1"
 
 $kubeConfigHome = Join-Path $env:HOME '.kube'
